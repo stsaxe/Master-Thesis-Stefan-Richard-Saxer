@@ -1,5 +1,4 @@
-# Master-Thesis-Stefan-Richard-Saxer
-The Master Thesis of Stefan Richard Saxer written in the winter of 2025.
+# Scalable Dataset Generation and Feature Extraction for Improved Robustness in High-Traffic Environment Personal Tracker Identification
 
 The related Bachelor Thesis can be found [here](https://github.com/stsaxe/Bachelor-Thesis-Stefan-Richard-Saxer).
 
