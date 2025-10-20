@@ -49,7 +49,7 @@ import time
 import struct
 import logging
 
-from SnifferAPI import Logger
+from .SnifferAPI import Logger
 try:
     import serial
 except ImportError:
@@ -57,7 +57,7 @@ except ImportError:
     logging.error(f'pyserial not found, please run: "{sys.executable} -m pip install -r requirements.txt" and retry')
     sys.exit(f'pyserial not found, please run: "{sys.executable} -m pip install -r requirements.txt" and retry')
 
-from SnifferAPI import Sniffer, UART, Devices, Pcap, Exceptions
+from .SnifferAPI import Sniffer, UART, Devices, Pcap, Exceptions
 
 ERROR_USAGE = 0
 ERROR_ARG = 1
