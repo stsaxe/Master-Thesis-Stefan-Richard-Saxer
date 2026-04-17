@@ -1,0 +1,7 @@
+Label,precision,recall,f1-score,support
+Owner Device,1.0,1.0,1.0,18619.0
+Tile Mate,1.0,0.998,0.999,1033.0
+,,,,
+accuracy,1.0,1.0,1.0,1.0
+macro avg,1.0,0.999,0.999,19652.0
+weighted avg,1.0,1.0,1.0,19652.0

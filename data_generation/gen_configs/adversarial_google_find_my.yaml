@@ -1,0 +1,56 @@
+seed: "Google"
+
+node rules:
+  - path: "**.packet"
+    action:
+      ref: "default_gen_strat_pdu"
+      args: { transitions: [ [ 1, 0b0000 ], [ 1, 0b0010 ], [ 1, 0b0110 ], [ 1, 0b0100 ] ] }
+
+
+field rules:
+  - path: "**.packet.channel"
+    action:
+      ref: "real_channel"
+
+  - path: "**.company_id"
+    action:
+      ref: "real_company_id"
+      args: { transitions: [ [ 1, 398 ], [ 1, 224 ] ] }
+
+  - path: "**.device_name"
+    action:
+      ref: "generate_device_name_from_list"
+
+  - path: "**.16_bit_uuid"
+    action:
+      ref: "real_uuid"
+      args:
+        transitions: [ [ 1, 65268 ],
+                       [ 1, 65267 ],
+                       [ 1, 65240 ],
+                       [ 1, 65194 ],
+                       [ 1, 65184 ],
+                       [ 1, 65183 ],
+                       [ 1, 65110 ],
+                       [ 1, 65109 ],
+                       [ 1, 65104 ],
+                       [ 1, 65068 ],
+                       [ 1, 65063 ],
+                       [ 1, 65062 ],
+                       [ 1, 65049 ],
+                       [ 1, 65008 ],
+                       [ 1, 64994 ],
+                       [ 1, 64918 ],
+                       [ 1, 64908 ],
+                       [ 1, 64903 ],
+                       [ 1, 64867 ],
+                       [ 1, 64866 ],
+                       [ 1, 64822 ],
+                       [ 1, 64753 ],
+                       [ 1, 64719 ],
+                       [ 1, 64689 ],
+                       [ 1, 64627 ],
+                       [ 1, 64598 ],
+                       [ 1, 64574 ]
+        ]
+

@@ -1,0 +1,20 @@
+
+seed: "TESTY"
+
+node rules:
+  - path: "**.packet"
+    action:
+      ref: "default_gen_strat_pdu"
+      args: {transitions: [[100, 0]]}
+
+  - path: "**.advertising_data"
+    action:
+      ref: "default_gen_strat_adv_data_structs"
+      args: { transitions: [[100, [0x02, 0xFF]]]}
+
+field rules:
+  - path: "**.company_id"
+    action:
+      ref: "real_company_id"
+      args: { transitions: [[10, 0xABCD], [10, 0x1234], [10, 0xAB12], [10, 0xAB34],  [10, 0x0123]], rotation_type: 'packet'}
+

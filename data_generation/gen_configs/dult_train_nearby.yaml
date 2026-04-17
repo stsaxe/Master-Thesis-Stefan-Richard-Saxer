@@ -1,0 +1,36 @@
+seed: "Dult Train Nearby"
+
+node rules:
+  - path: "**.packet"
+    action:
+      ref: "default_gen_strat_pdu"
+      args: { transitions: [[1, 0b0000], [1, 0b0010], [1, 0b0110]]}
+
+
+  - path: "**.advertising_data"
+    action:
+      ref: "default_gen_strat_adv_data_structs"
+      args: { transitions: [[1, [0x01, 0x16]]]}
+
+field rules:
+  - path: "**.16_bit_uuid"
+    action:
+      ref: "real_uuid"
+      args: {transitions: [[1, 0xFCB2]]}
+
+
+  - path: "**.adv_struct[adv_type=16].data"
+    action:
+      ref: "dult_protocol"
+      args:
+        network_id: ['02', '04', '05', '07', '08', '09', '10', '12', '13', '14']
+        nearby: True
+
+
+  - path: "**.packet.channel"
+    action:
+      ref: "real_channel"
+
+
+
+

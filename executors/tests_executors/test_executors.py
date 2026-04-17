@@ -3,7 +3,7 @@ import pandas as pd
 from sklearn.dummy import DummyClassifier
 from sklearn.preprocessing import MinMaxScaler
 
-from executors.executors.executors import *
+from executors.src.executors import *
 from tgf import Task
 
 
@@ -139,6 +139,7 @@ class Test_executors(unittest.TestCase):
 
         self.verifyResult(solution, testData)
 
+    # this test fails with newer versions of pandas
     def test_model_rate(self):
         random.seed(0) # do not change!
 

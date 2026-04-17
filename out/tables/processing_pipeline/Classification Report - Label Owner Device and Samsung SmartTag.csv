@@ -1,0 +1,7 @@
+Label,precision,recall,f1-score,support
+Owner Device,0.998,1.0,0.999,5413.0
+Samsung SmartTag,1.0,0.97,0.985,303.0
+,,,,
+accuracy,0.998,0.998,0.998,0.998
+macro avg,0.999,0.985,0.992,5716.0
+weighted avg,0.998,0.998,0.998,5716.0

@@ -1,0 +1,93 @@
+seed: "Apple Find My Gen 2 XXX"
+
+scopes:
+  - name: "global scope"
+    priority: 1
+    path: "**.packet"
+
+    rules:
+      - name: "mask advertising address"
+        path: "**.advertising_address"
+        priority: 1
+        action:
+          ref: "mask_ble_address"
+          rotation_type: "stream"
+
+
+  - name: "manufacturer data"
+    priority: 2
+    path: "**.adv_struct[adv_type=0xff]"
+
+    rules:
+      - name: "mask status"
+        path: "data"
+        priority: 1
+
+        condition:
+          ref: "is_apple_continuity"
+          args:
+            continuity_type: 12
+
+        action:
+          ref: "mask_hex_data"
+          args:
+            start: 4
+            end: 6
+            rotation_type: "stream"
+
+      - name: "mask key"
+        path: "data"
+        priority: 2
+
+        condition:
+          ref: "is_apple_continuity"
+          args:
+            continuity_type: 12
+
+
+        action:
+          ref: "mask_hex_data"
+          args:
+            start: 6
+            token: "Key"
+            rotation_type: "stream"
+
+  - name: "service data"
+    priority: 3
+    path: "**.adv_struct[adv_type=0x16]"
+
+    rules:
+      - name: "mask dult key"
+        priority: 1
+        path: "data"
+
+        condition:
+          ref: "is_dult"
+          args:
+            network_id: "01"
+
+        action:
+          ref: "mask_hex_data"
+          args:
+            start: 6
+            token: "Key"
+            rotation_type: "stream"
+
+      - name: "mask dult status"
+        priority: 2
+        path: "data"
+
+        condition:
+          ref: "is_dult"
+          args:
+            network_id: "01"
+
+        action:
+          ref: "mask_hex_data"
+          args:
+            start: 4
+            end: 6
+            rotation_type: "stream"
+
+
+

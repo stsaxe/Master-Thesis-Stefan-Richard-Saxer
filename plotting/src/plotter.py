@@ -6,6 +6,7 @@ import pandas as pd
 from matplotlib.ticker import PercentFormatter
 
 import matplotlib.pyplot as plt
+
 import matplotlib.ticker as mtick
 
 from tgf import ExecutorInterface
@@ -36,6 +37,7 @@ class Plotter(ExecutorInterface, ABC):
             assert column in self.columns
 
     def setUpFig(self):
+        plt.style.use('default')
         plt.figure(figsize=self.figSize, dpi=self.dpi)
 
     def showFig(self):
@@ -530,8 +532,9 @@ class PlotPacketRateGraph(AbstractPacketRate):
         fileColumn = self.columns['File']
         labelColumn = self.columns['Label']
 
-        file = df[fileColumn].iloc[0]
+
         label = df[labelColumn].iloc[0]
+        file = df[fileColumn].iloc[0]
 
         self.setUpFig()
 
@@ -542,7 +545,9 @@ class PlotPacketRateGraph(AbstractPacketRate):
 
             plt.plot(x, y, label="CH " + str(channel))
 
-        df.groupby(channelColumn).apply(printLine)
+        for channel in df[channelColumn].unique():
+            printLine(df[df[channelColumn] == channel])
+
 
         offset = 0.01
         max = df['Rate'].quantile(1 - offset)
@@ -589,7 +594,10 @@ class PlotPacketRateGraph(AbstractPacketRate):
         self.checkColumns(self.requiredColumns)
         temp = self.createDataFrame(dataToProcess)
 
-        temp.groupby([self.columns['File'], self.columns['Label']]).apply(self.plotPacketRate)
+        for fileColumn in temp[self.columns['File']].unique():
+            for labelColumn in temp[temp[self.columns['File']] == fileColumn][self.columns['Label']].unique():
+                df = temp[((temp[self.columns['File']] == fileColumn) & (temp[self.columns['Label']] == labelColumn))]
+                self.plotPacketRate(df)
 
         return dataToProcess
 

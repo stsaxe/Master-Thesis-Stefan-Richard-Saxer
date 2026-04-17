@@ -1,0 +1,18 @@
+seed: "Other Device"
+
+field rules:
+  - path: "**.company_id"
+    action:
+      ref: "real_company_id"
+
+  - path: "**.16_bit_uuid"
+    action:
+      ref: "real_uuid"
+
+  - path: "**.device_name"
+    action:
+      ref: "generate_device_name_from_list"
+
+  - path: "**.packet.channel"
+    action:
+      ref: "real_channel"

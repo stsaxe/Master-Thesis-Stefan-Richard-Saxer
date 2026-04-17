@@ -1,0 +1,7 @@
+Label,precision,recall,f1-score,support
+Apple AirPod,1.0,1.0,1.0,5143.0
+Owner Device,1.0,1.0,1.0,3661.0
+,,,,
+accuracy,1.0,1.0,1.0,1.0
+macro avg,1.0,1.0,1.0,8804.0
+weighted avg,1.0,1.0,1.0,8804.0

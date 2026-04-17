@@ -1,0 +1,37 @@
+seed: "Samsung"
+
+node rules:
+  - path: "**.packet"
+    action:
+      ref: "default_gen_strat_pdu"
+      args: { transitions: [ [ 1, 0b0000 ], [ 1, 0b0010 ], [ 1, 0b0110 ], [ 1, 0b0100 ] ] }
+
+
+field rules:
+  - path: "**.packet.channel"
+    action:
+      ref: "real_channel"
+
+  - path: "**.device_name"
+    action:
+      ref: "generate_device_name_from_list"
+
+  - path: "**.company_id"
+    action:
+      ref: "real_company_id"
+      args: { transitions: [ [ 1, 734 ], [ 1, 117 ] ] }
+
+  - path: "**.16_bit_uuid"
+    action:
+      ref: "real_uuid"
+      args:
+        transitions: [ [ 1, 64987 ],
+                       [ 1, 64894 ],
+                       [ 1, 64876 ],
+                       [ 1, 64873 ],
+                       [ 1, 64858 ],
+                       [ 1, 64857 ],
+                       [ 1, 64843 ],
+                       [ 1, 64797 ],
+                       [ 1, 64657 ] ]
+

@@ -1,0 +1,7 @@
+Label,precision,recall,f1-score,support
+4Smarts SkyTag Card,1.0,0.997,0.998,304.0
+Owner Device,1.0,1.0,1.0,3513.0
+,,,,
+accuracy,1.0,1.0,1.0,1.0
+macro avg,1.0,0.998,0.999,3817.0
+weighted avg,1.0,1.0,1.0,3817.0

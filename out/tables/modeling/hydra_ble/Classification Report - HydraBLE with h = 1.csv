@@ -1,0 +1,21 @@
+Label,precision,recall,f1-score,support
+Apple Device,0.99,0.96,0.975,200.0
+Apple Find My Device (offline),0.995,1.0,0.998,200.0
+Apple Find My Device (online),1.0,0.995,0.997,200.0
+Apple Find My Tracker (lost),0.986,0.35,0.517,200.0
+Apple Find My Tracker (nearby),1.0,0.98,0.99,200.0
+Apple Find My Tracker (unpaired),0.922,0.945,0.933,200.0
+Apple Find My Tracker Gen 2 (lost),0.778,1.0,0.875,200.0
+Apple Find My Tracker Gen 2 (nearby),1.0,1.0,1.0,200.0
+DULT (lost),0.847,0.47,0.605,200.0
+DULT (nearby),0.635,0.915,0.75,200.0
+Google Find My Tracker (lost),1.0,1.0,1.0,200.0
+Google Find My Tracker (unpaired),0.995,0.99,0.992,200.0
+Samsung SmartThings Tracker (lost),1.0,1.0,1.0,200.0
+Samsung SmartThings Tracker (nearby),0.966,1.0,0.983,200.0
+Tile Tracker (lost),0.962,1.0,0.98,200.0
+Other Device,0.968,0.988,0.978,3000.0
+,,,,
+accuracy,0.948,0.948,0.948,0.948
+macro avg,0.94,0.912,0.911,6000.0
+weighted avg,0.953,0.948,0.942,6000.0

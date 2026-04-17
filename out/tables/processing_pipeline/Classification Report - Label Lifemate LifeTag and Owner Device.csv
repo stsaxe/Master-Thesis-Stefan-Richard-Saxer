@@ -1,0 +1,7 @@
+Label,precision,recall,f1-score,support
+Lifemate LifeTag,1.0,0.989,0.994,440.0
+Owner Device,0.999,1.0,0.999,4796.0
+,,,,
+accuracy,0.999,0.999,0.999,0.999
+macro avg,0.999,0.994,0.997,5236.0
+weighted avg,0.999,0.999,0.999,5236.0

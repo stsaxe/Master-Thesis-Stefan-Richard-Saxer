@@ -1,0 +1,49 @@
+
+name: "my test config"
+seed: "TEST"
+
+
+scopes:
+  - name: "mask_address_global"
+    priority: 2
+    path: "packet.pdu"
+
+    rules:
+      - name: "mask_address"
+        path: "**.advertising_address"
+        priority: 1
+        condition:
+          ref: "is_apple_continuity"
+          args:
+            continuity_type: [16, 07, 12]
+        action:
+          ref: "mask_ble_address"
+          args:
+            length: 12
+            token: "TOKEN"
+
+      - name: "mask_manufacturer_data"
+        path: "**.adv_struct[adv_type=0xff].data"
+        priority: 2
+        condition:
+          ref: "is_apple_continuity"
+          args:
+            continuity_type: 16
+        action:
+          ref: "mask_hex_data"
+          args:
+            token: "TOKEN"
+            start: 2
+
+  - name: "power_level_scope"
+    path: "**"
+    rules:
+      - name: "mask_tx_power_level"
+        path: "**.power_level"
+        action:
+          ref: "mask_hex_data"
+          args:
+            token: "TOKEN"
+
+
+

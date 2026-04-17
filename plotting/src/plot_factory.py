@@ -83,7 +83,7 @@ def PlotPipelineFactory(titleSuffix: str, labelColumn: str = 'Label', show: bool
                                         )
                  )
         )
-
+    """
     if mode == valid_modes[0]:
         pipeline.add(
             Task("Protocol",
@@ -97,6 +97,7 @@ def PlotPipelineFactory(titleSuffix: str, labelColumn: str = 'Label', show: bool
                                          )
                  )
         )
+    """
 
     pipeline.add(
         Task("Channel",
@@ -137,7 +138,7 @@ def PlotPipelineFactory(titleSuffix: str, labelColumn: str = 'Label', show: bool
                                      )
              )
     )
-
+    """
     pipeline.add(
         Task("Packet Length BoxPlot",
              executor=BoxPlot(columns={'Label': labelColumn, 'Feature': 'Length Packet'},
@@ -165,7 +166,7 @@ def PlotPipelineFactory(titleSuffix: str, labelColumn: str = 'Label', show: bool
 
              )
     )
-
+ """
     pipeline.add(
         Task("MS Data Length BoxPlot",
              executor=BoxPlot(columns={'Label': labelColumn, 'Feature': 'Length MS Data'},
@@ -294,7 +295,7 @@ def PlotPipelineFactory(titleSuffix: str, labelColumn: str = 'Label', show: bool
                                      )
              )
     )
-
+    """
     if mode == valid_modes[0]:
         pipeline.add(
             Task("Malformed",
@@ -307,7 +308,7 @@ def PlotPipelineFactory(titleSuffix: str, labelColumn: str = 'Label', show: bool
                                               yLabel='% of Packets')
                  )
         )
-
+    """
     pipeline.add(
 
         Task("Packet Rate Boxplot",

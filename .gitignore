@@ -1,3 +1,7 @@
 /data/
 .idea
 .git
+/open_set_example/data/
+/playground/
+/out/modeling/checkpoints/
+out/modeling/logits_and_labels/

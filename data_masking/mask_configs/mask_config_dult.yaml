@@ -1,0 +1,26 @@
+seed: "Mask DULT"
+
+scopes:
+  - name: "global scope"
+    priority: 1
+    path: "**.packet"
+
+    rules:
+      - name: "mask advertising address"
+        path: "**.advertising_address"
+        priority: 1
+        action:
+          ref: "mask_ble_address"
+          args:
+            rotation_type: "stream"
+
+
+      - name: "mask_data"
+        path: "**.adv_struct[adv_type=0x16]"
+        priority: 2
+
+        action:
+          ref: "mask_hex_data"
+          args:
+            rotation_type: "stream"
+            start: 4

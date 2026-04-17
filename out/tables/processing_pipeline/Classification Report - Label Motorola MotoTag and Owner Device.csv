@@ -1,0 +1,7 @@
+Label,precision,recall,f1-score,support
+Motorola MotoTag,1.0,0.996,0.998,1156.0
+Owner Device,1.0,1.0,1.0,10868.0
+,,,,
+accuracy,1.0,1.0,1.0,1.0
+macro avg,1.0,0.998,0.999,12024.0
+weighted avg,1.0,1.0,1.0,12024.0
