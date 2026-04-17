@@ -329,7 +329,7 @@ if __name__ == "__main__":
 
     model = HydraBLETransformer(
         vocab_size=2048,
-        num_classes=20,
+        num_classes=16,
         pad_id=0,
         max_heads=8,
         head_dim=64,

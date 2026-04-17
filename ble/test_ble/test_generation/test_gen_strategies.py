@@ -15,8 +15,6 @@ from ble.generation.GenerationStrategies import GenStratPDU, GEN_STRAT_REGISTRY,
 
 from unittest.mock import patch, Mock
 
-from playground.temp2 import AdvIndPDU
-
 
 class TestGenStrats(unittest.TestCase):
     def test_abstract_gen_strat(self):

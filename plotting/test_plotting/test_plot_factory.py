@@ -9,15 +9,15 @@ class Test_PlotPipelineFactory(unittest.TestCase):
     def test_modes(self):
         pipeline = PlotPipelineFactory(titleSuffix='', mode='analysis')
 
-        self.assertEqual(len(pipeline), 24)
+        self.assertEqual(len(pipeline), 20)
 
         pipeline = PlotPipelineFactory(titleSuffix='', mode='modeling')
 
-        self.assertEqual(len(pipeline), 20)
+        self.assertEqual(len(pipeline), 18)
 
         pipeline = PlotPipelineFactory(titleSuffix='', mode='inference')
 
-        self.assertEqual(len(pipeline), 18)
+        self.assertEqual(len(pipeline), 16)
 
         with self.assertRaises(AssertionError):
             pipeline = PlotPipelineFactory(titleSuffix='', mode='hello')
