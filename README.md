@@ -19,7 +19,7 @@ The repositories' directories contain the following files:
 - **plotting**: Functions and pipelines for plotting.
 - **tgf**: The Implementation of my Task-Group Framework. 
 
-- The folder containing the data (including both PCAP and CSV files) can be found on the link below on Kaggle, as it is too large for GitHub. Include the "data" folder as is on the top level directory to execute the Jupyter Notebooks locally. 
+The folder containing the data (including both PCAP and CSV files) can be found on the link below on Kaggle, as it is too large for GitHub. Include the "data" folder as is on the top level directory to execute the Jupyter Notebooks locally. 
 
 Link to data: https://www.kaggle.com/datasets/stefansaxer/ble-packets-from-tracking-devices
 
