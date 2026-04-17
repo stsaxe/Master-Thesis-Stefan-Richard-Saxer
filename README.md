@@ -14,7 +14,7 @@ The repositories' directories contain the following files:
 - **executors**: Custom executors used in data pipelines built on Task-Group-Framework. 
 - **modeling**: The Implementation of the adaptive **HydraBLE** Transformer Model and various notebooks for model training, logits extraction and evaluation of the result. 
 - **nrf**: The source code from Nordic Semi Conductor for BLE Packet Sniffing with the NRF DK-58420 (slightly updated so that various bgs are fixed). 
-- **open_set_example**: An Example Notebook showing Open-Set Example on various MNIST datasets.- **open_set_example**: An Example Notebook showing Open-Set Example on various MNIST datasets. 
+- **open_set_example**: An Example Notebook showing Open-Set Example on various MNIST datasets.
 - **out**: The outputs of the process and main artifacts of work, mostly plots, pickle objects and tables. Note that the model checkpoints and logits are not in there as they are too large for GitHub.
 - **plotting**: Functions and pipelines for plotting.
 - **tgf**: The Implementation of my Task-Group Framework. 
