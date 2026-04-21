@@ -15,7 +15,7 @@ scopes:
             rotation_type: "stream"
 
 
-      - name: "mask_key"
+      - name: "mask key"
         path: "**.adv_struct[adv_type=0x16].data"
         priority: 2
 

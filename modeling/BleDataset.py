@@ -38,12 +38,16 @@ class BLEStreamDataset(Dataset):
                  length_column: str = "Length",
                  label_unknown: str = LABEL_OTHER_DEVICE,
                  augment_data: bool = False,
-                 set_time_delta_zero: bool = False
+                 set_time_delta_zero: bool = False,
+                 adapt_sequence_length: bool = False,
+                 deterministic: bool = True
                  ):
 
         assert dataset_type in ['test', 'train', 'validation']
         self.augment_data = augment_data
         self.set_time_delta_zero = set_time_delta_zero
+        self.adapt_sequence_length = adapt_sequence_length
+        self.deterministic = deterministic
 
         self.data_set_type = dataset_type
         self.max_sequence_length = max_sequence_length
@@ -135,13 +139,17 @@ class BLEStreamDataset(Dataset):
 
 
         if self.augment_data:
-            random.seed(idx)
-            np.random.seed(idx)
+            if self.deterministic:
+                random.seed(idx)
+                np.random.seed(idx)
 
             stream_packets = self.packet_df.iloc[global_start:global_end, :][[
                 self.time_delta_column, self.channel_column, self.hex_column]].copy(deep=True)
+            if self.deterministic:
+                stream_packets = stream_packets.reset_index().sample(frac=0.8, random_state=idx).sort_index().set_index("index")
+            else:
+                stream_packets = stream_packets.reset_index().sample(frac=0.8).sort_index().set_index("index")
 
-            stream_packets = stream_packets.reset_index().sample(frac=0.8, random_state=idx).sort_index().set_index("index")
             stream_packets[self.time_delta_column] = 1_000_000 * np.random.lognormal(mean=1, sigma=1, size=len(stream_packets))
             stream_packets[self.time_delta_column] = stream_packets[self.time_delta_column].astype(int)
 
@@ -167,7 +175,9 @@ class BLEStreamDataset(Dataset):
 
     def _mask_stream(self, packets: list, idx: int, label: str):
         mask_config = self.mask_config_label_lut[label]
-        random.seed(idx)
+
+        if self.deterministic:
+            random.seed(idx)
 
         config = PseudomizerConfig()
         config.seed = mask_config.global_seed + self.data_set_type
@@ -185,7 +195,6 @@ class BLEStreamDataset(Dataset):
             post_mask = pkt.to_string()
 
             assert pre_mask != post_mask
-
 
 
             mask_config.rotate_epoch('packet')
@@ -207,6 +216,12 @@ class BLEStreamDataset(Dataset):
         tokenized_packets = self._tokenize_stream(stream_packets)
 
         tokens = list(itertools.chain(*tokenized_packets))
+
+        if self.adapt_sequence_length:
+            if self.deterministic:
+                random.seed(idx)
+            fraction = random.uniform(0.02, 1)
+            tokens = tokens[:int(fraction * int(self.max_token_length))]
 
         tokenized_packets = self._pad_stream(tokens, self.max_token_length)
         tokenized_packets = torch.tensor(tokenized_packets).long()

@@ -1,4 +1,5 @@
 /data/
+/out/pickle_objects/modeling_ba/
 .idea
 .git
 /open_set_example/data/

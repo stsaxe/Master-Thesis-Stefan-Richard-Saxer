@@ -15,7 +15,7 @@ class AccuracyOnUnknowns(AbstractMetric):
         assert isinstance(precision, int), 'precision must be of type integer'
 
         assert precision >= 0, 'precision must be at least 0'
-        assert precision <= 4, 'precision must be at max 4'
+        assert precision <= 5, 'precision must be at max 5'
 
         self.__unknown_label = unknown_label
         self.__precision = precision

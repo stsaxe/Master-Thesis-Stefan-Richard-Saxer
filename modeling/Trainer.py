@@ -61,7 +61,7 @@ class ClassificationTrainer:
         self.scaler = torch.amp.GradScaler(enabled=self.cfg.use_amp)
 
         os.makedirs(self.cfg.checkpoint_dir, exist_ok=True)
-        self.best_metric = -float("inf")
+        self.best_metric = float("inf")
 
     def move_batch(self, batch):
         tokens = batch["tokens"].to(self.cfg.device)
@@ -192,7 +192,7 @@ class ClassificationTrainer:
             val_metrics = self.evaluate()
 
             monitored = val_metrics["loss"]
-            is_best = monitored > self.best_metric
+            is_best = monitored < self.best_metric
             if is_best:
                 self.best_metric = monitored
 

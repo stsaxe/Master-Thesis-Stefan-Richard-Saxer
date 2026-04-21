@@ -73,7 +73,8 @@ def plotMatrix(y_test, y_test_pred, labels, dpi: int = 300, normalize: str = 'tr
         cmap="Blues",
         colorbar=True,
         values_format=".2f",
-        include_values=False,
+        include_values=True,
+        text_kw={"fontsize": 6}
     )
 
     plt.style.use('default')

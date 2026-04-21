@@ -4,19 +4,19 @@ node rules:
   - path: "**.packet"
     action:
       ref: "default_gen_strat_pdu"
-      args: { transitions: [[1, 0b0000], [1, 0b0010], [1, 0b0110]]}
+      args: { transitions: [[1, 0b0000], [1, 0b0010], [1, 0b0110]] }
 
 
   - path: "**.advertising_data"
     action:
       ref: "default_gen_strat_adv_data_structs"
-      args: { transitions: [[1, [0x01, 0x16]]]}
+      args: { transitions: [[1, [0x01, 0x16]]] }
 
 field rules:
   - path: "**.16_bit_uuid"
     action:
       ref: "real_uuid"
-      args: {transitions: [[1, 0xFCB2]]}
+      args: { transitions: [[1, 0xFCB2]] }
 
 
   - path: "**.adv_struct[adv_type=16].data"
