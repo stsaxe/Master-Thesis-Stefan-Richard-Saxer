@@ -19,7 +19,7 @@ The repositories' directories contain the following files:
 - **plotting**: Functions and pipelines for plotting.
 - **tgf**: The Implementation of my Task-Group Framework. 
 
-To most important files and notebooks for model training is in the **modeling** folder. There are three Jupyter notebooks for each experiment. One for training the model, one for extracting the logits into 
+To most important files and notebooks for model training are in the **modeling** folder. There are three Jupyter notebooks for each experiment. One for training the model, one for extracting the logits into 
 PyTorch tensors stored on disk, and one for evaluating with various evaluation metrics. It is also necessary to create the corresponding folders for checkpoints and logits. This are always provided in paths at the top
 of the notebooks and can also be seen in the gitignore file.
 
