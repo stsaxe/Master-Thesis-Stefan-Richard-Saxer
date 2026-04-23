@@ -4,7 +4,7 @@ This is the Master Thesis of Stefan Richard Saxer, written in the spring semeste
 
 The related Bachelor Thesis can be found [here](https://github.com/stsaxe/Bachelor-Thesis-Stefan-Richard-Saxer).
 
-The repositories' directories contain the following files:
+This repositories' directories contain the following files:
 - **ble**: The BLE Parser Framework responsible for parsing, masking and generating packets. 
 - **bpe**: The custom BytePair Encoder for BLE packets. 
 - **data_generation**: Jupyter Notebooks responsible for generating synthetic BLE data and analyzing it as well as the corresponding .yaml config files.
