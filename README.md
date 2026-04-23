@@ -21,7 +21,7 @@ The repositories' directories contain the following files:
 
 To most important files and notebooks for model training is in the **modeling** folder. There are three Jupyter notebooks for each experiment. One for training the model, one for extracting the logits into 
 PyTorch tensors stored on disk, and one for evaluating with various evaluation metrics. It is also necessary to create the corresponding folders for checkpoints and logits. This are always provided in paths at the top
-of the notebooks and can also be seen in the gitignore file. 
+of the notebooks and can also be seen in the gitignore file.
 
 
 The folder containing the data (including both PCAP, CSV and processed Parquet files) can be found on the link below on Kaggle, as it is too large for GitHub. Include the "data" folder as is on the top level directory to execute the Jupyter Notebooks locally. 
