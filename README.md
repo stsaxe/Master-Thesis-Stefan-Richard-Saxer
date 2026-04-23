@@ -19,9 +19,13 @@ The repositories' directories contain the following files:
 - **plotting**: Functions and pipelines for plotting.
 - **tgf**: The Implementation of my Task-Group Framework. 
 
-The folder containing the data (including both PCAP and CSV files) can be found on the link below on Kaggle, as it is too large for GitHub. Include the "data" folder as is on the top level directory to execute the Jupyter Notebooks locally. 
+To most important files and notebooks for model training is in the **modeling** folder. There are three Jupyter notebooks for each experiment. One for training the model, one for extracting the logits into 
+PyTorch tensors stored on disk, and one for evaluating with various evaluation metrics. 
 
-Link to data: https://www.kaggle.com/datasets/stefansaxer/ble-packets-from-tracking-devices
+
+The folder containing the data (including both PCAP, CSV and processed Parquet files) can be found on the link below on Kaggle, as it is too large for GitHub. Include the "data" folder as is on the top level directory to execute the Jupyter Notebooks locally. 
+
+Link to data: https://www.kaggle.com/datasets/stefansaxer/ble-packets-from-tracking-devices-extended/data
 
 **Note**: Local execution requires Python Version **3.12** or later. The requirements for the conda environment can be found in the environment.yaml file.
 
