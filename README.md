@@ -24,7 +24,7 @@ PyTorch tensors stored on disk, and one for evaluating with various evaluation m
 of the notebooks and can also be seen in the gitignore file.
 
 
-The folder containing the data (including both PCAP, CSV and processed Parquet files) can be found on the link below on Kaggle, as it is too large for GitHub. Include the "data" folder as is on the top level directory to execute the Jupyter Notebooks locally. 
+The folder containing the data (including PCAP, CSV and processed Parquet files) can be found on the link below on Kaggle, as it is too large for GitHub. Include the "data" folder as is on the top level directory to execute the Jupyter Notebooks locally. 
 
 Link to data: https://www.kaggle.com/datasets/stefansaxer/ble-packets-from-tracking-devices-extended/data
 
