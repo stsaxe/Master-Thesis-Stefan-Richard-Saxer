@@ -4,7 +4,18 @@
 .git
 /open_set_example/data/
 /playground/
-/out/modeling/checkpoints/
+/out/modeling/checkpoints/classification/
+/out/modeling/checkpoints/classification_data_augmented/
+/out/modeling/checkpoints/classification_hard/
+/out/modeling/checkpoints/classification_finetuning/
+
+/out/modeling/checkpoints/pretraining/
+
+/out/modeling/logits_and_labels/classification/
+/out/modeling/logits_and_labels/classification_data_augmented/
+/out/modeling/logits_and_labels/classification_hard/
+/out/modeling/logits_and_labels/classification_finetuning/
+
 out/modeling/logits_and_labels/
 /inference/
 
