@@ -6,3 +6,5 @@
 /playground/
 /out/modeling/checkpoints/
 out/modeling/logits_and_labels/
+/inference/
+
