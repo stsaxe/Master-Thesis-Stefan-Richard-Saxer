@@ -262,7 +262,7 @@ Useful sub-folders are :
 </p>
 
 
-#### A Confusion matrix for fine-tuned HydraBLE with h = 8 (the largest and strongest variant of HydraBLE)
+### A Confusion matrix for fine-tuned HydraBLE with h = 8 (the largest and strongest variant of HydraBLE)
 
 <p align="center">
   <img src="./out/plots/modeling/classification_finetuning/Confusion%20Matrix%20-%20HydraBLE%20(fine)%20with%20h%20=%208.png" width="700" alt="Confusion matrix for fine-tuned HydraBLE with h = 2">
