@@ -174,7 +174,7 @@ HydraBLE differs from the Bachelor thesis models in several ways:
 | Training | One model can support several runtime-complexity settings |
 | Evaluation | Open-set evaluation with unknown rejection |
 
-The scalable ViT architecture of HydraViT (and in extension HydraBLE with some modifications to the embedding layer) is shown in the image below taken from [HydraViT: Stacking Heads for a Scalable ViT](https://arxiv.org/pdf/2409.17978).
+The scalable ViT architecture of HydraViT (and, by extension, HydraBLE with some modifications to the embedding layer) is shown in the image below, taken from [HydraViT: Stacking Heads for a Scalable ViT](https://arxiv.org/pdf/2409.17978).
 
 <p align="center">
   <img src="hydra_vit.png" width="300" >
@@ -235,7 +235,7 @@ The final evaluation compares several HydraBLE variants against a baseline inspi
 | HydraBLE augmented |               `h = 8` | 0.981 | 0.970 | 0.993 | 0.970 | 0.923 | [`Metrics Table HydraBLE (augmented).csv`](./out/tables/modeling/classification_data_augmented/Metrics%20Table%20HydraBLE%20(augmented).csv) |
 | HydraBLE fine-tuning |               `h = 8` | 0.979 | 0.965 | 0.992 | 0.964 | 0.882 | [`Metrics Table HydraBLE (finetuning).csv`](./out/tables/modeling/classification_finetuning/Metrics%20Table%20HydraBLE%20(finetuning).csv) |
 
-The table above only shows one value of h for each experiment. The experiments differ in the dataset used only. The "hard" experiment used an unmasked-time interval, which results in overfitting. The "augmented" experiment used data augmentations, such as time distortion, and the "finetuning" experiment uses in addition to data augmentations variable input token sequence lengths to better represent real world inference settings. The "funneling" model is obtained by finetuning the model from the "augmented" experiment on variable sequence lengths
+The table above only shows one value of h for each experiment. The experiments differ only in the dataset used. The "hard" experiment used an unmasked time interval, which results in overfitting. The "augmented" experiment used data augmentations, such as time distortion, and the "fine-tuning" experiment used, in addition to data augmentations, variable input token sequence lengths to better represent real-world inference settings. The "fine-tuning" model is obtained by fine-tuning the model from the "augmented" experiment on variable sequence lengths
 
 The Bachelor thesis baseline performs substantially worse on the new and more difficult benchmark. In particular, the baseline struggles with the AirTag 2 and cannot reliably distinguish DULT states because the original packet-level feature approach does not inspect the raw payload in the way required for this task.
 
