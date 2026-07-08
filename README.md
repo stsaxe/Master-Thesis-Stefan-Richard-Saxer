@@ -69,16 +69,16 @@ This thesis uses a broad definition of a BLE tracker: any device that is trackab
 
 The Bachelor thesis demonstrated that BLE tracker detection is possible in high-traffic environments, but the approach had several limitations:
 
-| Bachelor thesis | Master thesis |
-|---|---|
-| Packet-level classification | Stream-level classification |
-| Manually extracted Wireshark/CSV features | Raw-byte packet modeling |
-| MLP, , decision tree | Scalable Transformer architecture |
-| Mostly closed-set evaluation | Open-set evaluation with unknown-device rejection |
-| Limited number of tracker devices | Expanded physical dataset with more than 20 BLE devices |
-| Feature engineering by analysis | Automatic deep feature extraction from byte sequences |
+| Bachelor thesis                                        | Master thesis |
+|--------------------------------------------------------|---|
+| Packet-level classification                            | Stream-level classification |
+| Manually extracted Wireshark/CSV features              | Raw-byte packet modeling |
+| MLP, decision tree                                     | Scalable Transformer architecture |
+| Mostly closed-set evaluation                           | Open-set evaluation with unknown-device rejection |
+| Limited number of tracker devices                      | Expanded physical dataset with more than 20 BLE devices |
+| Feature engineering by analysis                        | Automatic deep feature extraction from byte sequences |
 | Basic unknown handling through an "other device" class | Entropic Open-Set Loss and threshold-based rejection |
-| Small models with thousands of parameters | HydraBLE models with millions of parameters and adaptive inference scale |
+| Small models with thousands of parameters              | HydraBLE models with millions of parameters and adaptive inference scale |
 
 The goal of this thesis is not merely to improve closed-set accuracy. The more important objective is robustness: a real-world BLE tracker detector must handle devices that were not present during training and should avoid constantly misclassifying unknown background devices as trackers.
 
