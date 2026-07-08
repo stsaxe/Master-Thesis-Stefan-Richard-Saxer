@@ -177,7 +177,7 @@ HydraBLE differs from the Bachelor thesis models in several ways:
 The scalable ViT architecture of HydraViT (and in extension HydraBLE with some modifications to the embedding layer) is shown in the image below taken from [HydraViT: Stacking Heads for a Scalable ViT](https://arxiv.org/pdf/2409.17978).
 
 <p align="center">
-  <img src="hydra_vit.png" width="200" alt="Confusion matrix for fine-tuned HydraBLE with h = 2">
+  <img src="hydra_vit.png" width="300" >
 </p>
 
 
