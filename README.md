@@ -229,13 +229,13 @@ The final evaluation compares several HydraBLE variants against a baseline inspi
 
 ### Summary of reported metrics
 
-| Experiment | Best representative scale | Micro accuracy | Macro accuracy | Binary accuracy | CCR @ FPR = 1e-2 | CCR @ FPR = 1e-3 | Metrics table |
-|---|---:|---:|---:|---:|---:|---:|---|
-| HydraBLE hard | `h = 2` | 0.971 | 0.946 | 0.999 | 0.943 | 0.943 | [`Metrics Table HydraBLE (hard).csv`](./out/tables/modeling/classification_hard/Metrics%20Table%20HydraBLE%20(hard).csv) |
-| HydraBLE augmented | `h = 8` | 0.981 | 0.970 | 0.993 | 0.970 | 0.923 | [`Metrics Table HydraBLE (augmented).csv`](./out/tables/modeling/classification_data_augmented/Metrics%20Table%20HydraBLE%20(augmented).csv) |
-| HydraBLE fine-tuning | `h = 8` | 0.979 | 0.965 | 0.992 | 0.964 | 0.882 | [`Metrics Table HydraBLE (finetuning).csv`](./out/tables/modeling/classification_finetuning/Metrics%20Table%20HydraBLE%20(finetuning).csv) |
+| Experiment | Most relevant h scale | Micro accuracy | Macro accuracy | Binary accuracy | CCR @ FPR = 1e-2 | CCR @ FPR = 1e-3 | Metrics table |
+|---|----------------------:|---:|---:|---:|---:|---:|---|
+| HydraBLE hard |               `h = 2` | 0.971 | 0.946 | 0.999 | 0.943 | 0.943 | [`Metrics Table HydraBLE (hard).csv`](./out/tables/modeling/classification_hard/Metrics%20Table%20HydraBLE%20(hard).csv) |
+| HydraBLE augmented |               `h = 8` | 0.981 | 0.970 | 0.993 | 0.970 | 0.923 | [`Metrics Table HydraBLE (augmented).csv`](./out/tables/modeling/classification_data_augmented/Metrics%20Table%20HydraBLE%20(augmented).csv) |
+| HydraBLE fine-tuning |               `h = 8` | 0.979 | 0.965 | 0.992 | 0.964 | 0.882 | [`Metrics Table HydraBLE (finetuning).csv`](./out/tables/modeling/classification_finetuning/Metrics%20Table%20HydraBLE%20(finetuning).csv) |
 
-The strongest overall setting is the standard HydraBLE classifier with `h = 2` or `h = 4`. Both reach approximately **0.993 micro accuracy**, and both maintain approximately **0.987 CCR at FPR = 1e-3**. This means that the model can still correctly classify a large share of known BLE tracker streams while keeping false acceptance of unknown devices very low.
+The table above only shows one value of h for each experiment. The experiments differ in the dataset used only. The "hard" experiment used an unmasked-time interval, which results in overfitting. The "augmented" experiment used data augmentations, such as time distortion, and the "finetuning" experiment uses variable sequence lengths to better represent real world inference settings.  
 
 The Bachelor thesis baseline performs substantially worse on the new and more difficult benchmark. In particular, the baseline struggles with the AirTag 2 and cannot reliably distinguish DULT states because the original packet-level feature approach does not inspect the raw payload in the way required for this task.
 
@@ -243,18 +243,17 @@ The Bachelor thesis baseline performs substantially worse on the new and more di
 
 The main result artifacts are available under [`out/plots/modeling`](./out/plots/modeling).
 
-Useful folders:
+Useful sub-folders are :
 
 | Folder | Contents |
 |---|---|
-| [`out/plots/modeling/classification`](./out/plots/modeling/classification) | Standard HydraBLE results |
 | [`out/plots/modeling/classification_hard`](./out/plots/modeling/classification_hard) | Hard HydraBLE setup |
 | [`out/plots/modeling/classification_data_augmented`](./out/plots/modeling/classification_data_augmented) | HydraBLE with data augmentation |
 | [`out/plots/modeling/classification_finetuning`](./out/plots/modeling/classification_finetuning) | Fine-tuned HydraBLE with variable-length sequences |
 | [`out/plots/modeling/BA`](./out/plots/modeling/BA) | Bachelor thesis baseline on the new benchmark |
 
 
-#### OSCR curve for HydraBLE with finetuning with the Baseline of the Bachelor thesis (Approach BA)
+### The OSCR curve for HydraBLE with finetuning compared against the Baseline of the Bachelor thesis (Approach BA)
 
 **Note that the ideal curve is a flat line at CCR = 1.0 for this OSCR curve metric**
 
@@ -263,7 +262,7 @@ Useful folders:
 </p>
 
 
-#### Confusion matrix for fine-tuned HydraBLE with h = 8 (the largest and strongest variant of HydraBLE)
+#### A Confusion matrix for fine-tuned HydraBLE with h = 8 (the largest and strongest variant of HydraBLE)
 
 <p align="center">
   <img src="./out/plots/modeling/classification_finetuning/Confusion%20Matrix%20-%20HydraBLE%20(fine)%20with%20h%20=%208.png" width="700" alt="Confusion matrix for fine-tuned HydraBLE with h = 2">
@@ -272,7 +271,7 @@ Useful folders:
 
 ## First technical analysis of Apple's AirTag 2 
 
-A major non-modeling contribution of this thesis is the first detailed analysis of the **2nd-generation Apple AirTag**. At the time of writing, the AirTag 2 had only recently appeared on the market, and the thesis treats its packet-level behavior as one of the central scientific contributions.
+Another major non-modeling contribution of this thesis is the first detailed analysis of the **2nd-generation Apple AirTag**. At the time of writing, the AirTag 2 had only recently appeared on the market, and the thesis treats its packet-level behavior as one of the central scientific contributions.
 
 The main findings are:
 
