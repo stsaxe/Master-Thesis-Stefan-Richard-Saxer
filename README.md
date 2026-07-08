@@ -119,17 +119,17 @@ However, raw-byte modeling introduces two important technical challenges:
 
 The BLE Parser Framework in [`ble`](./ble) is one of the central software artifacts of the thesis. It provides a structured way to parse, validate, mask, and generate BLE packets.
 
-Main architectural features:
+Main architectural features and components:
 
-| Component | Purpose |
-|---|---|
-| Parser interface | Converts raw BLE packet bytes into structured parser trees |
-| Field abstraction | Represents packet fields as typed components |
-| Node/path system | Enables addressing packet subfields for masking and generation |
-| Parse policies | Controls how strictly BLE specification rules are enforced |
-| Auto-discovery | Allows parser components to be discovered and composed dynamically |
-| Masking system | Replaces or randomizes selected fields to prevent shortcut learning |
-| Synthetic generation | Builds syntactically valid BLE packets from YAML-defined state spaces |
+| Component | Purpose                                                                                           |
+|---|---------------------------------------------------------------------------------------------------|
+| Parser interface | Converts raw BLE packet bytes into structured parser trees (tree like representations of packets) |
+| Field abstraction | Represents packet fields as typed components                                                      |
+| Node/path system | Enables addressing packet subfields for masking and generation                                    |
+| Parse policies | Controls how strictly BLE specification rules are enforced when parsing packets                   |
+| Auto-discovery | Allows new parser software components (like classes) to be discovered dynamically                 |
+| Masking system | Replaces or randomizes selected fields to prevent shortcut learning                               |
+| Synthetic generation | Builds syntactically valid BLE packets from YAML-defined state spaces                             |
 
 This framework is useful beyond this thesis because it separates BLE packet structure from model architecture. It can be used for classical preprocessing, deep-learning input preparation, privacy-preserving masking, adversarial masking, and synthetic packet generation.
 
