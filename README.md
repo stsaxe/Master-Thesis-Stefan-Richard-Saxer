@@ -225,7 +225,7 @@ The custom evaluation code is in [`evaluation_framework`](./evaluation_framework
 
 ## Results
 
-The final evaluation compares several HydraBLE variants against a baseline inspired by the Bachelor thesis. The main evaluation metric is the OSCR curve and the corresponding CCR at fixed FPR values. Confusion matrices are provided for interpretability.
+The final evaluation compares several HydraBLE variants against a baseline inspired by the Bachelor's thesis. The main evaluation metric is the OSCR curve and the corresponding CCR at fixed FPR values. Confusion matrices are provided for interpretability.
 
 ### Summary of reported metrics
 
@@ -237,7 +237,7 @@ The final evaluation compares several HydraBLE variants against a baseline inspi
 
 The table above only shows one value of h for each experiment. The experiments differ only in the dataset used. The "hard" experiment used an unmasked time interval, which results in overfitting. The "augmented" experiment used data augmentations, such as time distortion, and the "fine-tuning" experiment used, in addition to data augmentations, variable input token sequence lengths to better represent real-world inference settings. The "fine-tuning" model is obtained by fine-tuning the model from the "augmented" experiment on variable sequence lengths
 
-The Bachelor thesis baseline performs substantially worse on the new and more difficult benchmark. In particular, the baseline struggles with the AirTag 2 and cannot reliably distinguish DULT states because the original packet-level feature approach does not inspect the raw payload in the way required for this task.
+The Bachelor thesis baseline performs substantially worse on the new and more difficult benchmark. In particular, the baseline struggles with the AirTag 2 and cannot reliably distinguish certain tracker states because the original packet-level feature approach does not inspect the raw payload in the way required for some states and trackers.
 
 ### Main result plots
 
