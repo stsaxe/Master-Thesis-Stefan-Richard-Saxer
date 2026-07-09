@@ -271,7 +271,7 @@ Useful sub-folders are :
 
 ## First technical analysis of Apple's AirTag 2 
 
-Another major non-modeling contribution of this thesis is the first detailed analysis of the **2nd-generation Apple AirTag**. At the time of writing, the AirTag 2 had only recently appeared on the market, and the thesis treats its packet-level behavior as one of the central scientific contributions.
+Another major contribution of this thesis is the first detailed analysis of the **2nd-generation Apple AirTag**. At the time of writing, the AirTag 2 had only recently entered the market, and this technical analysis is one of the most profound scientific contributions of this thesis.
 
 The main findings are:
 
